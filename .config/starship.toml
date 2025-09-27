@@ -1,7 +1,7 @@
 add_newline = true
 
 format = """
-$os$hostname$username$directory$git_branch$git_status$cmd_duration$jobs$fill$status$time
+$os$hostname$username$directory$git_branch$git_status$jobs$fill$status$cmd_duration$time
 $character
 """
 
@@ -19,8 +19,14 @@ disabled = false
 map_symbol = false
 pipestatus = false
 format = " $symbol "
-symbol = "[✘](bold red)"
-success_symbol = "[✓](bold green)"
+symbol = "[✘](red)"
+success_symbol = "[✓](green)"
+
+[cmd_duration]
+disabled = false
+min_time = 500
+show_milliseconds = false
+format = "[$duration](fg:#ffa500) "
 
 [time]
 disabled = false
@@ -117,11 +123,6 @@ style = "bold cyan"
 symbol = "⎈ "
 format = "[ k8s $symbol$context( @ $namespace)]($style)"
 style = "bold blue"
-
-[cmd_duration]
-min_time = 500
-format = "[ took $duration]($style)"
-style = "bold orange"
 
 [jobs]
 symbol = " "
