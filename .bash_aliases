@@ -64,6 +64,9 @@ alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Quick sync for dotfiles (stage updates, commit, and push)
 alias dotpush='dotgit add -u && dotgit commit -m "Update dotfiles" && dotgit push'
 
+# Pull latest dotfiles from GitHub and update working tree
+alias dotpull='dotgit pull --rebase --autostash'
+
 # -----------------------
 # Networking
 # -----------------------
