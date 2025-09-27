@@ -1,0 +1,129 @@
+add_newline = true
+
+format = """
+$os$hostname$username$directory$git_branch$git_status$cmd_duration$jobs$fill$status$time
+$character
+"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol   = "[❯](bold green)"
+vicmd_symbol   = "[❮](bold green)"
+disabled = false
+
+[fill]
+symbol = "·"
+
+[status]
+disabled = false
+map_symbol = false
+pipestatus = false
+format = " $symbol "
+symbol = "[✘](bold red)"
+success_symbol = "[✓](bold green)"
+
+[time]
+disabled = false
+time_format = "%I:%M:%S %p"
+format = "[](fg:#3b3f51)[  $time ](fg:#e6e9ef bg:#3b3f51)[](fg:#3b3f51)"
+
+[os]
+format = "[ $symbol]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Ubuntu = ""
+Linux = ""
+Macos = ""
+Windows = ""
+
+[hostname]
+ssh_only = false
+format = "[ $hostname ](bold cyan)"
+trim_at = "."
+disabled = false
+
+[username]
+format = "[ $user](bold green)"
+show_always = true
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
+read_only_style = "red"
+style = "bold white"
+format = "[ in $path]($style)[$read_only]($read_only_style)"
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Desktop"   = "󰝰"
+"Development" = ""
+"dev" = ""
+
+[git_branch]
+symbol = " "
+format = "[ on $symbol$branch]($style)"
+style = "bold magenta"
+
+[git_status]
+style = "yellow"
+format = "([$all_status$ahead_behind]($style))"
+conflicted = " "
+ahead     = " ⇡${count}"
+behind    = " ⇣${count}"
+diverged  = " ⇕${ahead_count}/${behind_count}"
+untracked = " ?${count}"
+stashed   = " 󰆓${count}"
+modified  = " !${count}"
+staged    = " +${count}"
+renamed   = " »${count}"
+deleted   = " -${count}"
+
+[nodejs]
+symbol = " "
+format = "[ node $symbol$version]($style)"
+style = "bold green"
+
+[python]
+symbol = " "
+pyenv_version_name = true
+format = "[ py $symbol$version( · $virtualenv)]($style)"
+style = "bold yellow"
+
+[rust]
+symbol = " "
+format = "[ rs $symbol$version]($style)"
+style = "bold red"
+
+[golang]
+symbol = " "
+format = "[ go $symbol$version]($style)"
+style = "bold cyan"
+
+[package]
+symbol = " "
+format = "[ pkg $symbol$version]($style)"
+style = "bold blue"
+
+[docker_context]
+symbol = " "
+format = "[ docker $symbol$context]($style)"
+style = "bold cyan"
+
+[kubernetes]
+symbol = "⎈ "
+format = "[ k8s $symbol$context( @ $namespace)]($style)"
+style = "bold blue"
+
+[cmd_duration]
+min_time = 500
+format = "[ took $duration]($style)"
+style = "bold orange"
+
+[jobs]
+symbol = " "
+format = "[ $symbol$number]($style)"
+style = "bold yellow"
