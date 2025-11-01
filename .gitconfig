@@ -5,6 +5,7 @@
 [core]
     editor = nano
     autocrlf = input
+	excludesfile = /home/jeremiah/.gitignore_global
 
 [color]
     ui = auto

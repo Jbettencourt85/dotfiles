@@ -120,3 +120,4 @@ alias venv='python3 -m venv venv && source venv/bin/activate' # Quick venv setup
 # -----------------------
 alias sp-on='eval "$(starship init bash)"'  # Enable Starship prompt
 alias sp-off='unset PROMPT_COMMAND; export PS1="\$ "'  # Disable Starship prompt
+alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
