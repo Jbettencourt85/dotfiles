@@ -46,7 +46,7 @@ Windows = ""
 
 [hostname]
 ssh_only = false
-format = "[ $hostname ](bold cyan)"
+format = "[ $hostname](bold cyan)"
 trim_at = "."
 disabled = false
 

@@ -13,11 +13,45 @@ alias ...='cd ../..'             # Go up two directories
 alias ....='cd ../../..'         # Go up three directories
 alias ~='cd ~'                   # Go to home
 
-alias ll='ls -alF'               # Long list format with file types
-alias la='ls -A'                 # List all except . and ..
-alias l='ls -CF'                 # Column view
-alias lt='ls -lhS'               # List, human readable, sorted by size
-alias lh='ls -d .* --color=auto' # Show hidden files only
+# =========================================================
+# LSD (LS Deluxe) Aliases
+# Enhanced directory listings with color, icons, and order
+# =========================================================
+
+# 🧩 Base alias — replaces plain 'ls'
+# Uses color and icons, groups directories first
+alias ls='lsd --group-dirs first --icon always --color=auto'
+
+# 📜 Long listing (permissions, size, date)
+alias ll='lsd -l --group-dirs first --icon always --color=auto'
+
+# 💾 Long listing + human-readable sizes
+alias lh='lsd -lh --group-dirs first --icon always --color=auto'
+
+# 👀 Show all (including hidden files)
+alias la='lsd -a --group-dirs first --icon always --color=auto'
+
+# 🔍 All + long + human-readable
+alias lla='lsd -lha --group-dirs first --icon always --color=auto'
+
+# 🕓 Sort by modification time (newest first)
+alias lt='lsd -lt --group-dirs first --icon always --color=auto'
+
+# 🌳 Tree view (depth 1)
+alias lt1='lsd --tree --depth 1 --group-dirs first --icon always --color=auto'
+
+# 🌲 Tree view (depth 2)
+alias lt2='lsd --tree --depth 2 --group-dirs first --icon always --color=auto'
+
+# 📁 Directories only (filters for folder entries)
+alias lsd-dir='lsd --group-dirs first --icon always --color=auto --classify | grep "/$"'
+
+# 🧠 Tips:
+# - Change '--color=auto' to '--color=always' if you prefer color even when piping output
+# - Run 'lsd --help' for all available options
+# - Config file: ~/.config/lsd/config.yaml
+#   → You can customize colors, date format, and icon theme there
+
 
 # -----------------------
 # Search & Inspect

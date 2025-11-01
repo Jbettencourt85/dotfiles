@@ -1,0 +1,14 @@
+[user]
+    name = Jbettencourt85
+    email = jeremiah.bettencourt@gmail.com
+
+[core]
+    editor = nano
+    autocrlf = input
+
+[color]
+    ui = auto
+
+[status]
+    showUntrackedFiles = no
+
