@@ -18,39 +18,39 @@ alias ~='cd ~'                   # Go to home
 # Enhanced directory listings with color, icons, and order
 # =========================================================
 
-# 🧩 Base alias — replaces plain 'ls'
+# Base alias - replaces plain 'ls'
 # Uses color and icons, groups directories first
 alias ls='lsd --group-dirs first --icon always --color=auto'
 
-# 📜 Long listing (permissions, size, date)
+# Long listing (permissions, size, date)
 alias ll='lsd -l --group-dirs first --icon always --color=auto'
 
-# 💾 Long listing + human-readable sizes
+# Long listing + human-readable sizes
 alias lh='lsd -lh --group-dirs first --icon always --color=auto'
 
-# 👀 Show all (including hidden files)
+# Show all (including hidden files)
 alias la='lsd -a --group-dirs first --icon always --color=auto'
 
-# 🔍 All + long + human-readable
+# All + long + human-readable
 alias lla='lsd -lha --group-dirs first --icon always --color=auto'
 
-# 🕓 Sort by modification time (newest first)
+# Sort by modification time (newest first)
 alias lt='lsd -lt --group-dirs first --icon always --color=auto'
 
-# 🌳 Tree view (depth 1)
+# Tree view (depth 1)
 alias lt1='lsd --tree --depth 1 --group-dirs first --icon always --color=auto'
 
-# 🌲 Tree view (depth 2)
+# Tree view (depth 2)
 alias lt2='lsd --tree --depth 2 --group-dirs first --icon always --color=auto'
 
-# 📁 Directories only (filters for folder entries)
+# Directories only (filters for folder entries)
 alias lsd-dir='lsd --group-dirs first --icon always --color=auto --classify | grep "/$"'
 
-# 🧠 Tips:
+# Tips:
 # - Change '--color=auto' to '--color=always' if you prefer color even when piping output
 # - Run 'lsd --help' for all available options
 # - Config file: ~/.config/lsd/config.yaml
-#   → You can customize colors, date format, and icon theme there
+#   - You can customize colors, date format, and icon theme there
 
 
 # -----------------------
@@ -113,11 +113,19 @@ alias pingg='ping google.com'    # Quick connectivity test
 # -----------------------
 alias py='python3'               # Python3 shorthand
 alias pip='pip3'                 # Pip3 shorthand
-alias venv='python3 -m venv venv && source venv/bin/activate' # Quick venv setup
+
+# Quick venv setup with error handling
+venv() {
+    if python3 -m venv venv; then
+        source venv/bin/activate
+    else
+        echo "Failed to create virtual environment"
+        return 1
+    fi
+}
 
 # -----------------------
 # Starship Prompt Toggles (optional)
 # -----------------------
 alias sp-on='eval "$(starship init bash)"'  # Enable Starship prompt
 alias sp-off='unset PROMPT_COMMAND; export PS1="\$ "'  # Disable Starship prompt
-alias dotgit='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
